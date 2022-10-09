@@ -132,8 +132,9 @@ void RenderSystem::update(float dt)
 	(entt::exclude<HiddenForRenderer>).each([&]
 	(const auto& quad, auto textureRect, auto body, auto indoorOutdoorBlend, auto)
 	{
+		sf:Color c(getIndoorOutdoorColor(indoorOutdoorBlend));
 		Renderer::submitQuad(
-			quad.texture, &textureRect, &getIndoorOutdoorColor(indoorOutdoorBlend), quad.shader,
+			quad.texture, &textureRect, &c, quad.shader,
 			body, quad.z, quad.rotation, quad.rotationOrigin);
 	});
 

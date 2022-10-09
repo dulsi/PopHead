@@ -76,8 +76,9 @@ void Platforms::update(float dt)
 		if(!platform.active) return;
 
 		// move platform
-		Vec2 toCenterOfPathBody = distanceBetweenPoints(platformBody.center(), platform.pathBody.center());
-		Vec2 velFactor = Vec2(1.f) - hadamardDiv(toCenterOfPathBody, platform.pathBody.size);
+  float toCenterOfPathBodyDistance = distanceBetweenPoints(platformBody.center(), platform.pathBody.center());
+		Vec2 toCenterOfPathBody(toCenterOfPathBodyDistance, toCenterOfPathBodyDistance);
+		Vec2 velFactor = Vec2(1.f, 1.f) - hadamardDiv(toCenterOfPathBody, platform.pathBody.size);
 		platform.currentVelocity = hadamardMul(platform.fullVelocity, velFactor) * dt;
 		platformBody.pos += platform.currentVelocity; 
 

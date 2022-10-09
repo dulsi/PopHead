@@ -2,7 +2,7 @@
 #include "texture.hpp"
 #include "openglErrors.hpp"
 
-//#define STB_IMAGE_IMPLEMENTATION - uncomment if we don't link to sfml-graphics module
+#define STB_IMAGE_IMPLEMENTATION //- uncomment if we don't link to sfml-graphics module
 #include <stb_image.h>
 
 namespace ph {

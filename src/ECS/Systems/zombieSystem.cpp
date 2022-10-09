@@ -67,7 +67,7 @@ void ZombieSystem::update(float dt)
 
 	for (auto zombieEntity : zombies)
 	{
-		auto& [zombie, kinematics, animationData] = zombies.get<Zombie, Kinematics, AnimationData>(zombieEntity);
+		const auto& [zombie, kinematics, animationData] = zombies.get<Zombie, Kinematics, AnimationData>(zombieEntity);
 		const auto& [body, speed] = zombies.get<BodyRect, CharacterSpeed>(zombieEntity);
 
 		// make sounds
@@ -100,7 +100,7 @@ void ZombieSystem::update(float dt)
 
 		for (; begin != end; ++begin)
 		{
-			auto& [zombie, kinematics, animationData] = zombies.get<Zombie, Kinematics, AnimationData>(*begin);
+			const auto& [zombie, kinematics, animationData] = zombies.get<Zombie, Kinematics, AnimationData>(*begin);
 			const auto& [body, speed, circle] = zombies.get<BodyRect, CharacterSpeed, BodyCircle>(*begin);
 			
 			// move body 

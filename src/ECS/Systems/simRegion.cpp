@@ -10,7 +10,7 @@ using namespace component;
 
 static constexpr float partitionSideSize = 16.f * 12.f * 3.f;
 static constexpr float simRegionSideSize = partitionSideSize * 3.f;
-static const Vec2 partitionSize = Vec2(partitionSideSize);
+static const Vec2 partitionSize = Vec2(partitionSideSize, partitionSideSize);
 static const Vec2i partitionSizeInt = Cast<Vec2i>(partitionSize);
 
 void SimRegion::update(float dt)
@@ -48,7 +48,7 @@ void SimRegion::update(float dt)
 		DebugVisualization::setSimRegionCentralPartitionBoundsPtr(&mSimRegionCentralPartitionBounds);
 
 		mSimRegionCentralPartitionBounds.size = partitionSize;
-		mSimRegionBounds.size = Vec2(simRegionSideSize);
+		mSimRegionBounds.size = Vec2(simRegionSideSize, simRegionSideSize);
 
 		reComputeBounds();
 		pullEntitiesInAndOutInsideRegion();

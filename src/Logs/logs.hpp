@@ -12,6 +12,7 @@
 #define PH_ASSERT_EXPRESSION(expression, code)\
 	if(!(expression)) code
 
+#define PH_DEBUG_LOGS_ENABLED
 
 #ifdef PH_DEBUG_LOGS_ENABLED
 

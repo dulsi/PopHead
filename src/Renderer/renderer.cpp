@@ -3,8 +3,8 @@
 #include "MinorRenderers/quadRenderer.hpp"
 #include "MinorRenderers/lineRenderer.hpp"
 #include "MinorRenderers/pointRenderer.hpp"
-#include "MinorRenderers/LightRenderer.hpp"
-#include "MinorRenderers/TextRenderer.hpp"
+#include "MinorRenderers/lightRenderer.hpp"
+#include "MinorRenderers/textRenderer.hpp"
 #include "API/shader.hpp"
 #include "API/font.hpp"
 #include "API/openglErrors.hpp"
@@ -84,9 +84,12 @@ void init(u32 screenWidth, u32 screenHeight)
 	GLCheck( glBufferSubData(GL_UNIFORM_BUFFER, sizeof(mat4), sizeof(mat4), guiVPM.e) );
 
 	// init shaders
-	circleShader.init(shader::circleSrc());
-	defaultFramebufferShader.init(shader::defaultFramebufferSrc());
-	gaussianBlurFramebufferShader.init(shader::gaussianBlurFramebufferSrc());
+	auto circle = shader::circleSrc();
+	circleShader.init(circle);
+	auto framebuffer = shader::defaultFramebufferSrc();
+	defaultFramebufferShader.init(framebuffer);
+	auto gaussianBlur = shader::gaussianBlurFramebufferSrc();
+	gaussianBlurFramebufferShader.init(gaussianBlur);
 
 	// set up framebuffers
 	gameObjectsFramebuffer.init(screenWidth, screenHeight);

@@ -1,5 +1,5 @@
 #include "pch.hpp"
-#include "RandomPathAlgorithm.hpp"
+#include "randomPathAlgorithm.hpp"
 #include "Utilities/random.hpp"
 
 namespace ph {

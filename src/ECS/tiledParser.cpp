@@ -114,7 +114,7 @@ static void loadEntity(const Xml& entityNode, EntitiesTemplateStorage& templates
 		body.size = getSizeAttribute();
 		Vec2 bottomRight = body.bottomRight();
 		body.pos -= getOffsetFromTileTopLeft(body.pos); 
-		bottomRight += Vec2(16.f);
+		bottomRight += Vec2(16.f, 16.f);
 		bottomRight -= getOffsetFromTileTopLeft(bottomRight); 
 		body.size = bottomRight - body.pos;
 		return body;
@@ -344,7 +344,7 @@ static void loadEntity(const Xml& entityNode, EntitiesTemplateStorage& templates
 	else if(type == "Lever") 
 	{
 		createCopy("Lever");
-		auto& body = loadPos();
+		const auto& body = loadPos();
 		loadIndoorOutdoorBlendComponent();
 		loadPuzzleId();
 		auto& lever = registry.get<Lever>(entity);
@@ -365,7 +365,7 @@ static void loadEntity(const Xml& entityNode, EntitiesTemplateStorage& templates
 	else if(type == "FlowingRiver")
 	{
 		createCopy("FlowingRiver");
-		auto& [pushingArea, particleEmitter, body] = registry.get<PushingArea, ParticleEmitter, BodyRect>(entity);
+		const auto& [pushingArea, particleEmitter, body] = registry.get<PushingArea, ParticleEmitter, BodyRect>(entity);
 		body.pos = getPosAttribute();
 		auto size = getSizeAttribute();
 		body.size = size;
@@ -426,7 +426,7 @@ static void loadEntity(const Xml& entityNode, EntitiesTemplateStorage& templates
 	else if(type == "PuzzleBoulder")
 	{
 		createCopy("PuzzleBoulder");
-		auto& body = loadAndAlignPos();
+		const auto& body = loadAndAlignPos();
 		loadPuzzleGridPos(body);
 		loadIndoorOutdoorBlendComponent();
 		loadPuzzleColorAndTextureRect();
@@ -434,7 +434,7 @@ static void loadEntity(const Xml& entityNode, EntitiesTemplateStorage& templates
 	else if(type == "PressurePlate")
 	{
 		createCopy("PressurePlate");
-		auto& body = loadAndAlignPos();
+		const auto& body = loadAndAlignPos();
 		loadPuzzleGridPos(body);
 		loadIndoorOutdoorBlendComponent();
 		loadPuzzleColorAndTextureRect();

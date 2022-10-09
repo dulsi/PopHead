@@ -15,8 +15,8 @@ namespace ph {
 
 		FILE* file;
 		char filepath[50] = "resources/fonts/";
-		strcat_s(filepath, filename);
-		fopen_s(&file, filepath, "rb");
+		strcat(filepath, filename);
+		file = fopen(filepath, "rb");
 		if(!file)
 			PH_EXIT_GAME("Opening font file \"" + std::string(filepath) + "\" has failed!");
 
@@ -110,7 +110,8 @@ namespace ph {
 		glEnableVertexAttribArray(1);
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 
-		shader.init(shader::fontBitmapDebugSrc());
+		auto shade = shader::fontBitmapDebugSrc();
+		shader.init(shade);
 	}
 
 	FontDebugRenderer::FontDebugRendererData::~FontDebugRendererData()

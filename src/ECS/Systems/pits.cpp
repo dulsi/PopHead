@@ -42,7 +42,7 @@ void Pits::update(float dt)
 	(auto entity, auto& falling, auto& body)
 	{
 		falling.timeToEnd -= dt;
-		body.setSizeWithFixedCenter(Vec2(20.f) * falling.timeToEnd);
+		body.setSizeWithFixedCenter(Vec2(20.f, 20.f) * falling.timeToEnd);
 		if(falling.timeToEnd < 0.f)
 		{
 			DamageTag tag{1000, false};

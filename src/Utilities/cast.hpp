@@ -1,4 +1,6 @@
 #pragma once
+#ifndef __CAST_HPP
+#define __CAST_HPP
 
 #include "vector4.hpp"
 #include "forceInline.hpp"
@@ -18,4 +20,6 @@ FORCE_INLINE sf::Color castToPackedColor(Vec4);
 
 }
 
-#include "cast.inl"
+//#include "cast.inl"
+
+#endif

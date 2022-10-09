@@ -17,7 +17,7 @@ ph::FileHandler::FileHandler(std::string fileName)
 
 	auto timepoint = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 	tm calendarTime;
-	localtime_s(&calendarTime, &timepoint);
+	localtime_r(&timepoint, &calendarTime);
 
 	fileName += '_' +
 				numberToStringWithTwoDigits(calendarTime.tm_mon + 1) + '-' +

@@ -16,7 +16,7 @@ namespace {
 	{
 		auto timepoint = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 		tm calendarTime;
-		localtime_s(&calendarTime, &timepoint);
+		localtime_r(&timepoint, &calendarTime);
 
 		return numberToStringWithTwoDigits(calendarTime.tm_hour) + ":" +
 			numberToStringWithTwoDigits(calendarTime.tm_min) + ":" +

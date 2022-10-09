@@ -139,7 +139,10 @@ void Scene::update(float dt)
 void Scene::setPlayerStatus(const PlayerStatus& status)
 {
 	auto playerView = mRegistry.view<component::Bullets, component::Health, component::Player>();
-	auto& [bullets, health] = playerView.get<component::Bullets, component::Health>(*playerView.begin());
+	const auto pView = playerView.begin();
+	auto tup = playerView.get<component::Bullets, component::Health>(*pView);
+ auto& bullets = std::get<0>(tup);
+ auto& health = std::get<1>(tup);
 	bullets.numOfPistolBullets = status.numOfPistolBullets;
 	bullets.numOfShotgunBullets = status.numOfShotgunBullets;
 	health.healthPoints = status.healthPoints;

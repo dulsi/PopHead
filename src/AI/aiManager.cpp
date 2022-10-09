@@ -1,7 +1,7 @@
 #include "pch.hpp"
 #include "aiManager.hpp" 
 #include "aStarAlgorithm.hpp"
-#include "RandomPathAlgorithm.hpp"
+#include "randomPathAlgorithm.hpp"
 
 namespace ph {
 

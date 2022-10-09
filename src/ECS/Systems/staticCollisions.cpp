@@ -120,7 +120,7 @@ namespace ph::system {
 				bool change = false;
 				if ((collisionVector.x > approx && smallOffset.x > approx) || (collisionVector.x < -approx && smallOffset.x < -approx))
 				{
-					if (std::fabsf(collisionVector.y) < approx)
+					if (fabsf(collisionVector.y) < approx)
 					{
 						kinematicRect.x -= smallOffset.x;
 						change = true;
@@ -128,7 +128,7 @@ namespace ph::system {
 				}
 				if ((collisionVector.y > approx && smallOffset.y > approx) || (collisionVector.y < -approx && smallOffset.y < -approx))
 				{
-					if (std::fabsf(collisionVector.x) < approx)
+					if (fabsf(collisionVector.x) < approx)
 					{
 						kinematicRect.y -= smallOffset.y;
 						change = true;
@@ -144,22 +144,22 @@ namespace ph::system {
 		if (collisionVector.x < 0)
 		{
 			kinematicBody.staticallyMovedLeft = true;
-			pushedLeft.emplace_back(kinematicEntity, kinematicCircle != false);
+			pushedLeft.emplace_back(kinematicEntity, kinematicCircle != NULL);
 		}
 		if (collisionVector.x > 0)
 		{
 			kinematicBody.staticallyMovedRight = true;
-			pushedRight.emplace_back(kinematicEntity, kinematicCircle != false);
+			pushedRight.emplace_back(kinematicEntity, kinematicCircle != NULL);
 		}
 		if (collisionVector.y < 0)
 		{
 			kinematicBody.staticallyMovedUp = true;
-			pushedUp.emplace_back(kinematicEntity, kinematicCircle != false);
+			pushedUp.emplace_back(kinematicEntity, kinematicCircle != NULL);
 		}
 		if (collisionVector.y > 0)
 		{
 			kinematicBody.staticallyMovedDown = true;
-			pushedDown.emplace_back(kinematicEntity, kinematicCircle != false);
+			pushedDown.emplace_back(kinematicEntity, kinematicCircle != NULL);
 		}
 
 		return collisionVector;

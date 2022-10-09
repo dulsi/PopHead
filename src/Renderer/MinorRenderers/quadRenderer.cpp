@@ -248,13 +248,16 @@ void init()
 	debugNumbers.notAffectedByLightRenderGroupsIndices.resize(100);
 
 	// init shaders
-	defaultQuadShader.init(shader::quadSrc());
+	auto quad = shader::quadSrc();
+	defaultQuadShader.init(quad);
 	defaultQuadShader.initUniformBlock("SharedData", 0);
 
-	groundChunkShader.init(shader::groundChunkSrc());
+	auto ground = shader::groundChunkSrc();
+	groundChunkShader.init(ground);
 	groundChunkShader.initUniformBlock("SharedData", 0);
 
-	chunkShader.init(shader::chunkSrc());
+	auto chunk = shader::chunkSrc();
+	chunkShader.init(chunk);
 	chunkShader.initUniformBlock("SharedData", 0);
 
 	// create vao and ibo for quads from hash map 

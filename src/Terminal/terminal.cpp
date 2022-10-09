@@ -2,7 +2,7 @@
 #include "terminal.hpp"
 #include "game.hpp"
 #include "Scenes/sceneManager.hpp"
-#include "ECS/System.hpp"
+#include "ECS/system.hpp"
 #include "ECS/Components/charactersComponents.hpp"
 #include "ECS/Components/physicsComponents.hpp"
 #include "ECS/Components/graphicsComponents.hpp"
@@ -665,7 +665,8 @@ void update(float dt)
 
 	if(isVisible)
 	{
-		Renderer::submitQuad(Null, Null, &sf::Color(0, 0, 0, 230), Null, {0.f, 660.f}, {1920.f, 420.f}, 5, 0.f, {},
+		sf::Color c(0, 0, 0, 230);
+		Renderer::submitQuad(Null, Null, &c, Null, {0.f, 660.f}, {1920.f, 420.f}, 5, 0.f, {},
 			ProjectionType::gui, false);
 
 		Renderer::submitQuad(Null, Null, &sf::Color::Black, Null, {0.f, 720.f}, {1920.f, 5.f},

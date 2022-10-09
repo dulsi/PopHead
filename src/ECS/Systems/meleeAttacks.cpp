@@ -7,6 +7,7 @@
 #include "ECS/Components/simRegionComponents.hpp"
 #include "ECS/entityUtil.hpp"
 #include "Utilities/direction.hpp"
+#include <math.h>
 
 namespace ph::system {
 
@@ -79,7 +80,7 @@ void MeleeAttacks::update(float dt)
 				Vec2 enemyBodyCenter = enemyBody.center();
 				if(intersect(attackArea, enemyBody))
 				{
-					float enemyAngle = std::atan2f(enemyBodyCenter.y - playerPos.y, enemyBodyCenter.x - playerPos.x);
+					float enemyAngle = atan2f(enemyBodyCenter.y - playerPos.y, enemyBodyCenter.x - playerPos.x);
 					enemyAngle = radiansToDegrees(enemyAngle);
 					if(enemyAngle >= mStartWeaponRotation - meleeProperties.rotationRange - 10.f &&
 					   enemyAngle <= mStartWeaponRotation + 10.f) 
@@ -109,7 +110,7 @@ void MeleeAttacks::update(float dt)
 		if(mShouldWeaponBeRendered)
 		{
 			// set weapon position
-			weaponBody.pos = playerPos - Vec2(12.f);
+			weaponBody.pos = playerPos - Vec2(12.f, 12.f);
 
 			// rotate weapon
 			float anglesPerSecond = 240.f;

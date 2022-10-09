@@ -38,7 +38,8 @@ static u32 drawCalls;
 
 void init()
 {
-	lineShader.init(shader::lineSrc());
+	auto line = shader::lineSrc();
+	lineShader.init(line);
 	lineShader.initUniformBlock("SharedData", 0);
 
 	GLCheck( glEnable(GL_LINE_SMOOTH) );

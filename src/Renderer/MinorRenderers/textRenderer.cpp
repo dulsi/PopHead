@@ -25,8 +25,8 @@ static CharacterQuad getCharacterQuad(const stbtt_bakedchar *chardata, i32 charI
 {
 	const stbtt_bakedchar* bc = chardata + charIndex;
 	CharacterQuad q;
-	q.pos.x = std::floorf(pos->x + bc->xoff + 0.5f);
-	q.pos.y = std::floorf(pos->y + bc->yoff + 0.5f);
+	q.pos.x = floorf(pos->x + bc->xoff + 0.5f);
+	q.pos.y = floorf(pos->y + bc->yoff + 0.5f);
 	u8 width = bc->x1 - bc->x0;
 	u8 height = bc->y1 - bc->y0;
 	q.size = {float(width), float(height)};
@@ -61,7 +61,8 @@ static void drawTextInternal(const char* text, const char* fontFilename, Vec2 po
 
 void init()
 {
-	textShader.init(shader::textSrc());
+	auto text = shader::textSrc();
+	textShader.init(text);
 	textShader.initUniformBlock("SharedData", 0);
 	rowCharacters.reserve(100);
 }

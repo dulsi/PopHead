@@ -1,4 +1,5 @@
 #include "rect.hpp"
+using namespace sf;
 
 template<typename T>
 Rect<T>::Rect() :x(0), y(0), w(0), h(0) {}

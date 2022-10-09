@@ -555,7 +555,7 @@ void XmlMapParser::createChunk(Vec2 chunkPos, const std::vector<u32>& globalTile
 		mAlreadyCreatedPuzzleGridRoadChunks.emplace_back(intChunkPos);
 		#ifndef PH_DISTRIBUTION
 		mGameRegistry->assign<component::DebugName>(entity, component::DebugName{"RoadChunk\0"});
-		mGameRegistry->assign<component::BodyRect>(entity, FloatRect(chunkPos * 16.f, Vec2(12.f * 16.f)));
+		mGameRegistry->assign<component::BodyRect>(entity, FloatRect(chunkPos * 16.f, Vec2(12.f * 16.f, 12.f * 16.f)));
 		mGameRegistry->assign<component::DebugColor>(entity, Random::generateColor(sf::Color(0, 0, 0, 50), sf::Color(255, 255, 255, 50))); 
 		#endif
 	}
@@ -565,7 +565,7 @@ void XmlMapParser::createChunk(Vec2 chunkPos, const std::vector<u32>& globalTile
 		// create pit chunk in registry
 		auto entity = mGameRegistry->create();
 		mGameRegistry->assign<component::PitChunk>(entity, pitChunk);
-		mGameRegistry->assign<component::BodyRect>(entity, FloatRect(chunkPos * 16.f, Vec2(sChunkSize * 16.f)));
+		mGameRegistry->assign<component::BodyRect>(entity, FloatRect(chunkPos * 16.f, Vec2(sChunkSize * 16.f, sChunkSize * 16.f)));
 		#ifndef PH_DISTRIBUTION
 		mGameRegistry->assign<component::DebugName>(entity, component::DebugName{"PitChunk\0"});
 		mGameRegistry->assign<component::DebugColor>(entity, Random::generateColor(sf::Color(0, 0, 0, 50), sf::Color(255, 255, 255, 50))); 

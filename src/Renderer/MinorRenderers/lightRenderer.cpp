@@ -63,7 +63,8 @@ namespace
 void init()
 {
 	// init ray collision light rendering
-	lightShader.init(shader::lightSrc());
+	auto light = shader::lightSrc();
+	lightShader.init(light);
 	lightShader.initUniformBlock("SharedData", 0);
 
 	glGenVertexArrays(1, &lightTriangleFanVao);
@@ -79,7 +80,8 @@ void init()
 
 
 	// init no ray collision light rendering
-	noCollisionLightShader.init(shader::noCollisionLightSrc());
+	auto noColl = shader::noCollisionLightSrc();
+	noCollisionLightShader.init(noColl);
 	noCollisionLightShader.initUniformBlock("SharedData", 0);
 
 	glGenVertexArrays(1, &noCollisionLightRectVao);

@@ -3,51 +3,10 @@
 
 namespace ph {
 
-	template<typename T>
-	Vec2Base<T> getUnitVector(Vec2Base<T> vec)
-	{
-		auto dist = distanceBetweenPoints(Vec2(), vec);
-		return vec / dist;
-	}
-
-	template <typename T>
-	Vec2Base<T> hadamardMul(Vec2Base<T> a, Vec2Base<T> b)
-	{
-		Vec2Base<T> res;
-		res.x = a.x * b.x;
-		res.y = a.y * b.y;
-		return res;
-	}
-
-	template <typename T>
-	Vec2Base<T> hadamardDiv(Vec2Base<T> a, Vec2Base<T> b)
-	{
-		Vec2Base<T> res;
-		res.x = a.x / b.x;
-		res.y = a.y / b.y;
-		return res;
-	}
-
-	template <typename T>
-	float distanceBetweenPoints(Vec2Base<T> point1, Vec2Base<T> point2)
-	{
-		auto diff1 = point1.x - point2.x;
-		auto diff2 = point1.y - point2.y;
-		diff1 *= diff1;
-		diff2 *= diff2;
-		return Cast<float>(std::sqrt(diff1 + diff2));
-	}
-
-	template<typename T>
-	Vec2Base<T> absVec(Vec2Base<T> vec)
-	{
-		return Vec2Base<T>(std::abs(vec.x), std::abs(vec.y));
-	}
-
 	Vec2 getUnitVector(float angle)
 	{
 		auto radians = degreesToRadians(angle);
-		return Vec2(std::cosf(radians), std::sinf(radians));
+		return Vec2(std::cosh(radians), std::sinh(radians));
 	}
 
 	float getMagnitude(Vec2 v)

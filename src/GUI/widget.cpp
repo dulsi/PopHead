@@ -9,7 +9,8 @@ static Shader guiShader;
 
 void Widget::initShader()
 {
-	guiShader.init(shader::guiSrc());
+	auto i = shader::guiSrc();
+	guiShader.init(i);
 }
 
 void Widget::deleteShader()

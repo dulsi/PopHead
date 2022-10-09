@@ -121,7 +121,7 @@ void DamageAndDeath::makeCharactersDie()
 			if(mRegistry.has<Player>(entity))
 			{
 				auto& playerBody = getPlayerBodyRef();
-				playerBody.size = Vec2(20.f); 
+				playerBody.size = Vec2(20.f, 20.f); 
 				loadGameSave(&mRegistry);
 			}
 			else

@@ -1,5 +1,5 @@
 #include "pch.hpp"
-#include "AStarAlgorithm.hpp"
+#include "aStarAlgorithm.hpp"
 
 namespace ph {
 

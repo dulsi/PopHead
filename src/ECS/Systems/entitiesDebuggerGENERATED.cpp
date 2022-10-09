@@ -155,13 +155,15 @@ void EntitiesDebugger::update(float dt)
 
 				u8 alpha = underCursorEntity == mSelected ? 45 : 150;
 				auto& body = mRegistry.get<BodyRect>(underCursorEntity);
-				Renderer::submitQuad(Null, Null, &sf::Color(255, 0, 0, alpha), Null,
+				sf::Color c1(255, 0, 0, alpha);
+				Renderer::submitQuad(Null, Null, &c1, Null,
 					body.pos, body.size, underCursorZ, 0.f, {}, ProjectionType::gameWorld, false);
 
 				for(u32 i = 1; i < entitiesUnderCursor.size(); ++i)
 				{
 					auto& body = mRegistry.get<BodyRect>(underCursorEntity);
-					Renderer::submitQuad(Null, Null, &sf::Color(255, 0, 0, 40), Null,
+					sf::Color c2(255, 0, 0, 40);
+					Renderer::submitQuad(Null, Null, &c2, Null,
 						body.pos, body.size, underCursorZ, 0.f, {}, ProjectionType::gameWorld, false);
 				}
 
@@ -818,7 +820,8 @@ ImGui::BulletText("DontCareAboutSimRegion");
 
 			if(highlightSelected && bodyValid)
 			{
-				Renderer::submitQuad(Null, Null, &sf::Color(255, 0, 0, 150), Null, body.pos, body.size,
+				sf::Color c(255, 0, 0, 150);
+				Renderer::submitQuad(Null, Null, &c, Null, body.pos, body.size,
 									 10, 0.f, {}, ProjectionType::gameWorld, false);
 			}
 		}
